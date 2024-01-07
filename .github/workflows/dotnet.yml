@@ -19,7 +19,7 @@ jobs:
       name: Checkout Code
      
     - name: Setup MSBuild Path
-      uses: warrenbuckley/Setup-MSBuild@v1.1
+      uses: microsoft/setup-msbuild@v1.1
        
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
@@ -28,7 +28,7 @@ jobs:
       run: nuget restore TDU2.Unpacker.sln
  
     - name: Build and Publish Web App
-      run: msbuild TDU2.Unpacker.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile /p:Runtime=linux_x64
+      run: msbuild TDU2.Unpacker.sln -property:Configuration=Release -property:DeployOnBuild=true -property:PublishProfile=FolderProfile -property:Runtime=linux_x64
  
     - name: Upload Artifact
       uses: actions/upload-artifact@v1.0.0
