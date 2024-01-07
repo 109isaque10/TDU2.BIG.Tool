@@ -28,7 +28,7 @@ jobs:
       run: nuget restore TDU2.Unpacker.sln
  
     - name: Build and Publish Web App
-      run: msbuild TDU2.Unpacker.sln -property:Configuration=Release -property:DeployOnBuild=true -property:PublishProfile=FolderProfile -property:Runtime=linux_x64
+      run: msbuild TDU2.Unpacker\TDU2.Unpacker.sln -property:Configuration=Release -property:DeployOnBuild=true -property:PublishProfile=FolderProfile -property:Runtime=linux_x64
  
     - name: Upload Artifact
       uses: actions/upload-artifact@v1.0.0
